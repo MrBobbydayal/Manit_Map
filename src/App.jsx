@@ -30,8 +30,8 @@ function App() {
 
     mapRef.current = new mapboxgl.Map({
       container: mapContainerRef.current,
-      style: 'mapbox://styles/mapbox/light-v11',
-      zoom: 13,
+      //style: 'mapbox://styles/mapbox/light-v11',
+      zoom: 1.5,
       center: [77.406111111,23.21472222]
     });
 
