@@ -2,6 +2,7 @@ import { useRef, useEffect } from 'react'
 import mapboxgl from 'mapbox-gl'
 import 'mapbox-gl/dist/mapbox-gl.css';
 import './App.css'
+import { SearchBox } from '@mapbox/search-js-react';
 
 function App() {
   const mapRef = useRef()
@@ -71,7 +72,8 @@ function App() {
 
   return (
     <>
-      <div id='map-container' ref={mapContainerRef}/>
+       <SearchBox></SearchBox>
+       <div id='map-container' ref={mapContainerRef}/>
     </>
   )
 }
