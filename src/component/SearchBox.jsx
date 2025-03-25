@@ -36,7 +36,7 @@ export default function MapWithGeocoder() {
         }}
         marker
       />
-      <div id="map-container" ref={mapContainerRef} style={{ height: 300 }} />
+      <div id="map-container" ref={mapContainerRef} style={{height:300}}/>
     </>
   );
 }

@@ -3,6 +3,7 @@ import mapboxgl from 'mapbox-gl'
 import 'mapbox-gl/dist/mapbox-gl.css';
 import './App.css'
 import { SearchBox } from '@mapbox/search-js-react';
+import MyAddressForm from'./component/AdressAutofill.jsx';
 
 function App() {
   const mapRef = useRef()
@@ -31,7 +32,8 @@ function App() {
 
     mapRef.current = new mapboxgl.Map({
       container: mapContainerRef.current,
-      //style: 'mapbox://styles/mapbox/light-v11',
+    style: 'mapbox://styles/2211101132/cm7p4p52i003z01sc6s4e3wvf',
+     //style:'mapbox://styles/2211101132/cm7ydisg501nx01s29d7i4jnd',
       zoom: 1.5,
       center: [77.406111111,23.21472222]
     });
@@ -39,7 +41,10 @@ function App() {
     mapRef.current.on('load', () => {
       mapRef.current.addSource('mapbox-terrain', {
         type: 'vector',
-        url: 'mapbox://2211101132.manit-tiles'
+         url:'mapbox://2211101132.manit-tiles'
+         //2211101132.42jzv3rf'
+         
+        
       });
       mapRef.current.addLayer(
         {
@@ -72,8 +77,15 @@ function App() {
 
   return (
     <>
-       <SearchBox></SearchBox>
-       <div id='map-container' ref={mapContainerRef}/>
+    
+    <div className="flex-col justify-self-end w-52 border-black bg-neutral-500 ">
+    {/* <SearchBox className="border-black bg-slate-500 "/> */}
+    <MyAddressForm className="border-black bg-slate-500"/>
+    
+    
+    </div>
+    <div id='map-container' ref={mapContainerRef}/>
+    
     </>
   )
 }
