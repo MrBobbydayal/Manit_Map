@@ -1,14 +1,22 @@
-import { useRef, useEffect } from 'react'
+import { useRef, useEffect ,useState} from 'react'
 import mapboxgl from 'mapbox-gl'
 import 'mapbox-gl/dist/mapbox-gl.css';
+// // Import Geocoder styles (must come before map load)
+// import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
+
+// // Import the Geocoder control itself
+// import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
+
 import './App.css'
 import { SearchBox } from '@mapbox/search-js-react';
 import MyAddressForm from'./component/AdressAutofill.jsx';
+import { Geocoder } from '@mapbox/search-js-react';
 
 function App() {
   const mapRef = useRef()
   const mapContainerRef = useRef()
 
+   const [layer,setlayer]=useState()
   // mapRef.current = new mapboxgl.Map({
   //   container: mapContainerRef.current,
   //   center: [-74.0242, 40.6941],
@@ -32,19 +40,17 @@ function App() {
 
     mapRef.current = new mapboxgl.Map({
       container: mapContainerRef.current,
-    style: 'mapbox://styles/2211101132/cm7p4p52i003z01sc6s4e3wvf',
+    // style: 'mapbox://styles/2211101132/cm7p4p52i003z01sc6s4e3wvf',
      //style:'mapbox://styles/2211101132/cm7ydisg501nx01s29d7i4jnd',
+     style:'mapbox://styles/2211101132/cm937phgq009301qq0mh00y8g',
       zoom: 1.5,
       center: [77.406111111,23.21472222]
     });
-
     mapRef.current.on('load', () => {
       mapRef.current.addSource('mapbox-terrain', {
         type: 'vector',
          url:'mapbox://2211101132.manit-tiles'
          //2211101132.42jzv3rf'
-         
-        
       });
       mapRef.current.addLayer(
         {
@@ -63,6 +69,20 @@ function App() {
         },
         'road-label-simple'
       );
+
+
+    //   //real check
+    //   mapRef.current.addControl(new mapboxgl.NavigationControl(), 'top-right');
+
+    // // Add geocoder (search box)
+    // const geocoder = new MapboxGeocoder({
+    //   accessToken: mapboxgl.accessToken,
+    //   mapboxgl: mapboxgl,
+    //   marker: true, // Automatically add marker at result
+    //   placeholder: 'Search for a location',
+    // });
+
+    // mapRef.current.addControl(geocoder, 'top-left');
     });
 
     return () => mapRef.current.remove();
@@ -78,11 +98,15 @@ function App() {
   return (
     <>
     
-    <div className="flex-col justify-self-end w-52 border-black bg-neutral-500 ">
+    <div className="flex-col justify-self-end w-52 bg-white border-black bg-neutral-500  space-y-4">
     {/* <SearchBox className="border-black bg-slate-500 "/> */}
-    <MyAddressForm className="border-black bg-slate-500"/>
-    
-    
+    <MyAddressForm className=" text-black bg-stone-700 border-red-700"/>
+      <div className='bg-slate-100 flex-col space-y-4'>
+    <button className='text-slate-200 bg-teal-900 w-32 h-10 rounded-lg' >sattelite</button>
+    <button className='text-slate-200 bg-teal-900 w-32 h-10 rounded-lg' >custom</button>
+    </div>
+
+
     </div>
     <div id='map-container' ref={mapContainerRef}/>
     
