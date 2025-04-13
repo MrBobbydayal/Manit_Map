@@ -3,6 +3,9 @@ import { SearchBox } from "@mapbox/search-js-react";
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 
+import MapboxDirections from '@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions';
+import '@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions.css';
+
 const accessToken = "pk.eyJ1IjoiMjIxMTEwMTEzMiIsImEiOiJjbTc3cWhldXIxMmZyMnJzZ3F4ZGp6YTZuIn0.vOl6F3cJgJ0qV505fDe58w";
 
 export default function MapWithGeocoder() {
@@ -10,6 +13,9 @@ export default function MapWithGeocoder() {
   const mapInstanceRef = useRef();
   const [mapLoaded, setMapLoaded] = useState(false);
   const [inputValue, setInputValue] = useState("");
+
+  const [directionsControl, setDirectionsControl] = useState(null);
+
   useEffect(() => {
     mapboxgl.accessToken = accessToken;
 
@@ -27,6 +33,35 @@ export default function MapWithGeocoder() {
     mapInstanceRef.current.on("load", () => {
       setMapLoaded(true);
     });
+
+
+    mapInstanceRef.current.on("load", () => {
+          // Add the directions control
+          const directions = new MapboxDirections({
+            accessToken: mapboxgl.accessToken,
+            unit: 'metric',
+            profile: 'mapbox/driving',
+            controls: {
+              instructions: true
+            }
+          });
+      
+          mapInstanceRef.current.addControl(directions, 'top-left');
+          setMapLoaded(true);
+        });
+
+
+        mapInstanceRef.current.on("load", () => {
+              const directions = new MapboxDirections({
+                accessToken: mapboxgl.accessToken,
+                unit: 'metric',
+                profile: 'mapbox/driving'
+              });
+          
+              mapInstanceRef.current.addControl(directions, 'top-left');
+              setDirectionsControl(directions);
+              setMapLoaded(true);
+            });
   }, []);
 
   return (
@@ -49,7 +84,7 @@ export default function MapWithGeocoder() {
 
       </div>
       <div className="place-items-end ">
-      <div id="map-container" ref={mapContainerRef} style={{ height:650,width:1500 }} className="items-end" />
+      <div id="map-container" ref={mapContainerRef} style={{ height:650,width:1350 }} className="items-end" />
       </div>
       </div>
     </>
