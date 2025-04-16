@@ -21,14 +21,17 @@ export default function MapWithGeocoder() {
   
     const map = new mapboxgl.Map({
       container: mapContainerRef.current,
-      //style:'mapbox://styles/2211101132/cm9g0l6et00je01s73cj927g8',
-      style: 'mapbox://styles/2211101132/cm937phgq009301qq0mh00y8g',//style for custome layer
+      style:'mapbox://styles/2211101132/cm9g0l6et00je01s73cj927g8',//style for manit Layer
+      //style: 'mapbox://styles/2211101132/cm937phgq009301qq0mh00y8g',//style for custome layer
+      //style:'mapbox://styles/2211101132/cm8ym66c4003e01r47eos8xom',//style for Sattelite layer
       center: [77.406111111, 23.21472222],
       zoom: 13,
     });
   
     map.on("load", () => {
       setMapLoaded(true);
+      map.dragRotate.enable();
+  map.touchZoomRotate.enableRotation();
   
       const directions = new MapboxDirections({
         accessToken: mapboxgl.accessToken,
@@ -39,13 +42,15 @@ export default function MapWithGeocoder() {
       map.addControl(directions, 'top-left');
       setDirectionsControl(directions);
   
-      // // 👉 ADD CONTEXTMENU EVENT HERE
+      map.addControl(new mapboxgl.NavigationControl(), 'top-right');
+  
+
       map.on("contextmenu", (e) => {
         const features = map.queryRenderedFeatures(e.point, {
-          layers: ['newlandmark-dolw4d'] // ✅ Use actual layer ID
+          layers: ['newlandmark-dolw4d'] 
         });
   
-        console.log("Right click features:", features); // ✅ Debug
+        console.log("Right click features:", features); 
   
         if (!features.length) return;
   
