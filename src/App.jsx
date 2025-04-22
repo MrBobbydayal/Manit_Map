@@ -1,179 +1,47 @@
-import { useRef, useEffect, useState } from "react";
-import { SearchBox } from "@mapbox/search-js-react";
-import mapboxgl from "mapbox-gl";
-import "mapbox-gl/dist/mapbox-gl.css";
+import React from 'react'
+import Login from './component/Login.jsx'
+import SignUp from './component/SignUp.jsx'
+import MapWithCustom from './component/CustomMap.jsx'
+import MapWithSattelite from './component/SatteliteMap.jsx'
+import MapWithGeocoder from './component/Map.jsx'
+import {createBrowserRouter , RouterProvider} from 'react-router-dom'
+import AboutUs from './component/AboutUs.jsx'
 
-import MapboxDirections from '@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions';
-import '@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions.css';
+export const App = () => {
+  const router=createBrowserRouter([
+    {
+      path:"/",
+      element:<Login />
+    },
+    {
+      path:"/SignUp",
+      element:<SignUp />
+    },
+    {
+      path:"/Manit_Map",
+      element:<MapWithGeocoder/>
+    },
+    {
+      path:"/AboutUs",
+      element:<AboutUs/>
+    },
+    {
+      path:"/CustomLayer",
+      element:<MapWithCustom/>
+    },
+    {
+      path:"/SatteliteLayer",
+      element:<MapWithSattelite/>
+    }
+  ])
+    return (
+      <>
+      <RouterProvider router={router}/>
+      </>
+    )
+  }
 
-const accessToken = "pk.eyJ1IjoiMjIxMTEwMTEzMiIsImEiOiJjbTc3cWhldXIxMmZyMnJzZ3F4ZGp6YTZuIn0.vOl6F3cJgJ0qV505fDe58w";
-
-export default function MapWithGeocoder() {
-  const mapContainerRef = useRef();
-  const mapInstanceRef = useRef();
-  const [mapLoaded, setMapLoaded] = useState(false);
-  const [inputValue, setInputValue] = useState("");
-
-  const [directionsControl, setDirectionsControl] = useState(null);
-
-  useEffect(() => {
-    mapboxgl.accessToken = accessToken;
-  
-    const map = new mapboxgl.Map({
-      container: mapContainerRef.current,
-      style:'mapbox://styles/2211101132/cm9g0l6et00je01s73cj927g8',//style for manit Layer
-      //style: 'mapbox://styles/2211101132/cm937phgq009301qq0mh00y8g',//style for custome layer
-      //style:'mapbox://styles/2211101132/cm8ym66c4003e01r47eos8xom',//style for Sattelite layer
-      center: [77.406111111, 23.21472222],
-      zoom: 13,
-    });
-  
-    map.on("load", () => {
-      setMapLoaded(true);
-      map.dragRotate.enable();
-  map.touchZoomRotate.enableRotation();
-  
-      const directions = new MapboxDirections({
-        accessToken: mapboxgl.accessToken,
-        unit: 'metric',
-        profile: 'mapbox/driving',
-      });
-  
-      map.addControl(directions, 'top-left');
-      setDirectionsControl(directions);
-  
-      map.addControl(new mapboxgl.NavigationControl(), 'top-right');
-  
-
-      map.on("contextmenu", (e) => {
-        const features = map.queryRenderedFeatures(e.point, {
-          layers: ['newlandmark-dolw4d'] 
-        });
-  
-        console.log("Right click features:", features); 
-  
-        if (!features.length) return;
-  
-        const feature = features[0];
-        const { id, Name, geometrytype, Category } = feature.properties;
-  
-        new mapboxgl.Popup()
-          .setLngLat(e.lngLat)
-          .setHTML(`
-           <div>
-<div
-  class="relative flex justify-center h-[300px] w-[160px] border border-4
-   border-black rounded-2xl bg-gray-50"
-  style="box-shadow: 5px 5px 2.5px 6px rgb(209, 218, 218)"
->
-  <span
-    class="border border-black bg-black w-20 h-2 rounded-br-xl rounded-bl-xl"
-  > 
-  <h class='text-xl  text-red-600 mt-3'
-  >${Name || 'Unnamed Landmark'}</h>
-      <p><strong class='text-lg'>ID:</strong> ${id || 'N/A'}</p>
-      <p><strong class='text-lg'>Geometry:</strong> ${geometrytype || 'N/A'}</p>
-      <p><strong class='text-lg'>Category:</strong> ${Category || 'N/A'}</p>
-  </span>
-      
-
-  <span
-    class="absolute -right-2 top-14 border border-4 border-black h-7 rounded-md"
-  ></span>
-
-  <span
-    class="absolute -right-2 bottom-36 border border-4 border-black h-10 rounded-md"
-  >
-  </span>
-
-   
-</div>
-
-
-    </div>
-          `)
-          .addTo(map);
-      });
-    });
-     
-    
-    mapInstanceRef.current = map;
-  }, []);
-  
-
-  return (
-    <><div className="">
-      <div className=" flex-row inline-flex space-x-4">
-      <SearchBox
-        accessToken={accessToken}
-        map={mapInstanceRef.current}
-        mapboxgl={mapboxgl}
-        value={inputValue}
-        onChange={(d) => {
-          setInputValue(d);
-        }}
-        marker
-      />
-      
-      
-<div
-  class="flex space-x-2 border-[3px] border-purple-400 rounded-xl select-none h-10"
->
-  <label
-    class="radio flex flex-grow items-center justify-center rounded-lg p-1 cursor-pointer"
-  >
-    <input
-      type="radio"
-      name="radio"
-      value="mapbox://styles/2211101132/cm9g0l6et00je01s73cj927g8"
-      class="peer hidden"
-      //checked=""
-    />
-    <span
-      class="tracking-widest peer-checked:bg-gradient-to-r peer-checked:from-[blueviolet] peer-checked:to-[violet] peer-checked:text-white text-gray-700 p-2 rounded-lg transition duration-150 ease-in-out"
-      >Manit Layer</span
-    >
-  </label>
-
-  <label
-    class="radio flex flex-grow items-center justify-center rounded-lg p-1 cursor-pointer"
-  >
-    <input 
-       type="radio" 
-       name="radio" 
-       value="mapbox://styles/2211101132/cm937phgq009301qq0mh00y8g" 
-       class="peer hidden" />
-    <span
-      class="tracking-widest peer-checked:bg-gradient-to-r peer-checked:from-[blueviolet] peer-checked:to-[violet] peer-checked:text-white text-gray-700 p-2 rounded-lg transition duration-150 ease-in-out"
-      >Custom Layer</span
-    >
-  </label>
-
-  <label
-    class="radio flex flex-grow items-center justify-center rounded-lg p-1 cursor-pointer"
-  >
-    <input 
-        type="radio" 
-        name="radio" 
-        value="" 
-        class="peer hidden" />
-    <span
-      class="tracking-widest peer-checked:bg-gradient-to-r peer-checked:from-[blueviolet] peer-checked:to-[violet] peer-checked:text-white text-gray-700 p-2 rounded-lg transition duration-150 ease-in-out"
-      >Sattelite Layer</span
-    >
-  </label>
-</div>
-
-
-      </div>
-      <div className="place-items-end ">
-      <div id="map-container" ref={mapContainerRef} style={{ height:650,width:1350 }} className="items-end" />
-      </div>
-      </div>
-    </>
-  );
-}
-
+  export default App
 
 
 
