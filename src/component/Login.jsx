@@ -1,7 +1,8 @@
 import React from 'react'
 import { useState } from 'react';
 import { Navigate,useNavigate,NavLink } from 'react-router-dom'
-import MapBG from '/Users/DELL PC/OneDrive/Desktop/MAP/maps/src/assets/MapBG.png'
+import MapBG from "../assets/MapBG.png";
+
 export default function Login() {
   
   const [username,setUsername] = useState("")
