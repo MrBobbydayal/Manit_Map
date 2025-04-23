@@ -24,7 +24,7 @@ export default function MapWithCustom() {
 
   const handleLogout = async () => {
     try {
-      const res = await fetch("http://localhost:8000/api/v1/ManitMap/users/logout", {
+      const res = await fetch("https://backendformanitmap.onrender.com/api/v1/ManitMap/users/logout", {
         method: "POST",
         credentials: 'include',
         headers: { "Content-Type": "application/json" },
@@ -44,7 +44,7 @@ export default function MapWithCustom() {
 
   const [Bob,SetBob]=useState([]);
     useEffect ( ()=>{
-      const response=fetch("http://localhost:8000/api/v1/ManitMap/users/username",{
+      const response=fetch("https://backendformanitmap.onrender.com/api/v1/ManitMap/users/username",{
         method:'GET',
         credentials:'include'
       }).then(res => res.json())

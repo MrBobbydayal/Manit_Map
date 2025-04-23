@@ -19,7 +19,7 @@ export default function Login() {
     }
 
     try {
-      const res = await fetch("http://localhost:8000/api/v1/ManitMap/users/login", {
+      const res = await fetch("https://backendformanitmap.onrender.com/api/v1/ManitMap/users/login", {
         method: "POST",
         credentials:'include',
         headers: { "Content-Type": "application/json" },

@@ -19,7 +19,7 @@ const SignUp = () => {
     }
 
     try {
-      const res = await fetch("http://localhost:8000/api/v1/ManitMap/users/register", {
+      const res = await fetch("https://backendformanitmap.onrender.com/api/v1/ManitMap/users/register", {
         method: "POST",
         credentials:'include',
         headers: { "Content-Type": "application/json" },
