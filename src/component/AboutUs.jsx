@@ -23,7 +23,7 @@ const AboutUs = () => {
             <br/>
 
             <p class="  text-gray-300 "><strong className='text-xl'>Refrences:-
-            </strong>Arc GIS,Google Earth Pro,Mapbox,DEM Data,React js,Node js,</p>
+            </strong>GIS Tools,Google Earth Pro,Mapbox,Remote Sensing Data,React js,Node js,MongoDB</p>
         </div>
     </div>
 </div>
