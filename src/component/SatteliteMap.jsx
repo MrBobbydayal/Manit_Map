@@ -122,12 +122,12 @@ export default function MapWithSattelite() {
       
 
 
-      map.on("contextmenu", (e) => {
+      map.on("dblclick", (e) => {
         const features = map.queryRenderedFeatures(e.point, {
           layers: ['manitlanddatamark-3rdbdl'] 
         });
   
-        console.log("Right click features:", features); 
+        console.log("Double click features:", features); 
   
         if (!features.length) return;
   
