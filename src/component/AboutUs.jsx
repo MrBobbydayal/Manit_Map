@@ -21,7 +21,7 @@ const AboutUs = () => {
       <p class=" text-xl text-gray-300 "><strong >Guide:-
             </strong>Dr. Priyamitra Munoth</p>
             <br/>
-       <p><strong >Thanks To:-
+       <p class=" text-xl text-gray-300 "><strong >Thanks To:-
        </strong>Ms.Harshita(M Tech Scholsr)</p> <br/>
             <p class="  text-gray-300 "><strong className='text-xl'>Refrences:-
             </strong>GIS Tools,Google Earth Pro,Mapbox,Remote Sensing Data,React js,Node js,MongoDB</p>
