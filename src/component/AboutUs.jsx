@@ -28,11 +28,12 @@ const AboutUs = () => {
 </div>
 
 <div className="text-xl text-gray-300 mb-1">
-&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;<strong>Contributer:</strong>
+&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;<strong>Team Members:</strong>
   <div className="flex items-start gap-4 mt-1">
     <img src={Swati} className="h-32 rounded-md" alt="Developer" />
-    <p className="mt-0.5">Swati Jalandhra (2211101130)</p>
+    <p className="mt-0.5">Swati Jalandhara (2211101130)</p>
   </div>
+  <br/>
   <div className="flex items-start gap-4 mt-1">
     <img src={Raj} className="h-28 rounded-md" alt="Developer" />
     <p className="mt-0.5">Raj Srivastava (2211101133)</p>
@@ -51,7 +52,7 @@ const AboutUs = () => {
 &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; <strong>Thanks To:</strong>
   <div className="flex items-start gap-4 mt-1">
     <img src={Harshita} className="h-32 rounded-md" alt="Developer" />
-    <p className="mt-0.5">Ms. Harshita &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; (M Tech Scholar)</p>
+    <p className="mt-0.5">Ms. Harshita &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; (M Tech Scholar)</p>
   </div>
 </div>
             <p class="  text-gray-300 "><strong className='text-xl'>Refrences:-
