@@ -48,7 +48,8 @@ const SignUp = () => {
 
 
   return (
-    <div className='justify-items-center mt-20'>
+    <div className="bg-[url('https://images4.alphacoders.com/758/thumb-1920-75886.jpg')] bg-cover bg-center min-h-screen flex flex-col items-center justify-center p-8">
+
       <form onSubmit={handleSubmit}>
     <div class="w-80 rounded-2xl bg-slate-900 self-center">
         <div class="flex flex-col gap-2 p-8">

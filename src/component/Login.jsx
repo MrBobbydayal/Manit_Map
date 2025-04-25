@@ -1,9 +1,9 @@
 import React from 'react'
 import { useState } from 'react';
 import { Navigate,useNavigate,NavLink } from 'react-router-dom'
-import MapBG from "../assets/MapBG.png";
 
 export default function Login() {
+
   
   const [username,setUsername] = useState("")
   const [email,setEmail] = useState("")
@@ -45,42 +45,58 @@ export default function Login() {
 
 
 
-
+   
 
   return (
     <>
-    <div style={{backgroundImage:`url(${MapBG})`}}>
-    <button className="inline-block cursor-pointer rounded-md bg-gray-700 px-4 py-3.5 text-center text-sm font-semibold uppercase text-white transition duration-200 ease-in-out hover:bg-gray-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-700 focus-visible:ring-offset-2 active:scale-95"><NavLink className=' underline' to={'/AboutUs'}>About Us</NavLink>    
-    </button>
-    <form  onSubmit={handleSubmit}>
-    <div className='justify-items-center mt-16 '  style={{backgroundImage: `url(${MapBG})`}}>
-        <div className="w-80 rounded-2xl bg-slate-900 self-center">
-            <div className="flex flex-col gap-2 p-8">
-               <p className="text-center text-3xl text-gray-300 mb-4">Login</p>
-               <input className="bg-slate-900 w-full rounded-lg border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-gray-700 focus:ring-offset-2 focus:ring-offset-gray-800 text-white" 
-               placeholder="Username"   
-               value={username}
-               onChange={(e)=>setUsername(e.target.value)}/>
-               <input className="bg-slate-900 w-full rounded-lg border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-gray-700 focus:ring-offset-2 focus:ring-offset-gray-800 text-white" 
-               placeholder="Email"
-               value={email}
-               onChange={(e)=>setEmail(e.target.value)}/>
-               <input  type='password' className="bg-slate-900 w-full rounded-lg border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-gray-700 focus:ring-offset-2 focus:ring-offset-gray-800 text-white" 
-               placeholder="Password"
-               value={password}
-               onChange={(e)=>setPassword(e.target.value)}
-               required/>
-               <label className="flex cursor-pointer items-center justify-between p-1 text-slate-400">
-               Dont't have an account ???    
-               <NavLink className='text-red-500  underline' to={'/SignUp'}>Create an account</NavLink>    
-               </label>
-             <button className="inline-block cursor-pointer rounded-md bg-gray-700 px-4 py-3.5 text-center text-sm font-semibold uppercase text-white transition duration-200 ease-in-out hover:bg-gray-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-700 focus-visible:ring-offset-2 active:scale-95">Login</button>
-            </div>
+   <div className="bg-[url('https://images4.alphacoders.com/758/thumb-1920-75886.jpg')] bg-cover bg-center min-h-screen flex flex-col items-center justify-center p-8">
+
+
+      <button className="inline-block mb-6 cursor-pointer rounded-md bg-gray-700 px-4 py-3.5 text-center text-sm font-semibold uppercase text-white transition duration-200 ease-in-out hover:bg-gray-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-700 focus-visible:ring-offset-2 active:scale-95 opacity-90">
+        <NavLink className="underline" to={'/AboutUs'}>
+          About Us
+        </NavLink>
+      </button>
+  
+      <form onSubmit={handleSubmit}>
+        <div className="w-80 rounded-2xl bg-slate-900 bg-opacity-90 self-center">
+          <div className="flex flex-col gap-2 p-8">
+            <p className="text-center text-3xl text-gray-300 mb-4">Login</p>
+            <input
+              className="bg-slate-900 w-full rounded-lg border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-gray-700 focus:ring-offset-2 focus:ring-offset-gray-800 text-white"
+              placeholder="Username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+            <input
+              className="bg-slate-900 w-full rounded-lg border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-gray-700 focus:ring-offset-2 focus:ring-offset-gray-800 text-white"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <input
+              type="password"
+              className="bg-slate-900 w-full rounded-lg border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-gray-700 focus:ring-offset-2 focus:ring-offset-gray-800 text-white"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+            <label className="flex cursor-pointer items-center justify-between p-1 text-slate-400">
+              Don't have an account?
+              <NavLink className="text-red-500 underline" to={'/SignUp'}>
+                Create an account
+              </NavLink>
+            </label>
+            <button className="inline-block cursor-pointer rounded-md bg-gray-700 px-4 py-3.5 text-center text-sm font-semibold uppercase text-white transition duration-200 ease-in-out hover:bg-gray-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-700 focus-visible:ring-offset-2 active:scale-95">
+              Login
+            </button>
+          </div>
         </div>
+      </form>
     </div>
-    </form>
-    </div>
-    </>
+  </>
+  
   )
 }
 
