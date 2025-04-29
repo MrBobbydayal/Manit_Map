@@ -76,7 +76,7 @@ export default function Login() {
             />
             <input
               type="password"
-              className="bg-slate-900 w-full rounded-lg border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-gray-700 focus:ring-offset-2 focus:ring-offset-gray-800 text-white"
+              className="bg-slate-900 w-full rounded-lg border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-gray-700 focus:ring-offset-2 focus:ring-offset-gray-800 text-white "
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}

@@ -203,6 +203,9 @@ export default function MapWithGeocoder() {
           <label className="text-gray-900 dark:text-gray-100">
             <NavLink className="underline" to="/SatteliteLayer">Sattelite Layer</NavLink>
           </label>
+          <label className="text-gray-900 dark:text-gray-100">
+            <NavLink className="underline" to="/Contour">Contour</NavLink>
+          </label>
         </div>
   
         <h3 className="text-xl bg-slate-50 px-2 py-1 rounded">🙍🏻‍♂️ {Bob}</h3>

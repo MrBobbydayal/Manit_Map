@@ -6,6 +6,7 @@ import MapWithSattelite from './component/SatteliteMap.jsx'
 import MapWithGeocoder from './component/Map.jsx'
 import {createBrowserRouter , RouterProvider} from 'react-router-dom'
 import AboutUs from './component/AboutUs.jsx'
+import Contour from './component/Contoour.jsx'
 
 export const App = () => {
   const router=createBrowserRouter([
@@ -32,6 +33,10 @@ export const App = () => {
     {
       path:"/SatteliteLayer",
       element:<MapWithSattelite/>
+    },
+    {
+      path:"/Contour",
+      element:<Contour/>
     }
   ])
     return (
