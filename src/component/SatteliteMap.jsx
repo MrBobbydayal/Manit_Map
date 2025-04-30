@@ -195,7 +195,7 @@ export default function MapWithSattelite() {
 
       <div className="flex flex-wrap items-center space-x-2 bg-teal-400 rounded-md px-2 py-1">
         <label className="text-gray-900 dark:text-gray-100">
-          <NavLink className="underline" to="/Manit_Map">Manit Layer</NavLink>
+          <NavLink className="underline" to="/Manit_Map">MANIT Layer</NavLink>
         </label>
         <label className="text-gray-900 dark:text-gray-100">
           <NavLink className="underline" to="/CustomLayer">Custom Layer</NavLink>

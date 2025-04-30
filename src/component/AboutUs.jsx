@@ -17,13 +17,13 @@ const AboutUs = () => {
         <p class="text-center text-3xl text-gray-300 mb-4">AboutUs</p>
         <hr/>
         <p class="  text-gray-300 "><strong className='text-xl'>Project:-
-            </strong>A GIS Based WebApp For Manit</p>
+            </strong>A GIS Based WebApp For MANIT</p>
 
 <div className="text-xl text-gray-300 mb-1">
 &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;<strong>Developer:</strong>
   <div className="flex items-start gap-4 mt-1">
     <img src={My} className="h-32 rounded-md" alt="Developer" />
-    <p className="mt-0.5">Bobydayal Saket (2211101132)</p>
+    <p className="mt-0.5">Bobydayal Saket (B Tech 3rd year)</p>
   </div>
 </div>
 
@@ -31,12 +31,12 @@ const AboutUs = () => {
 &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;<strong>Team Members:</strong>
   <div className="flex items-start gap-4 mt-1">
     <img src={Swati} className="h-32 rounded-md" alt="Developer" />
-    <p className="mt-0.5">Swati Jalandhara (2211101130)</p>
+    <p className="mt-0.5">Swati Jalandhara (B Tech 3rd year)</p>
   </div>
   <br/>
   <div className="flex items-start gap-4 mt-1">
     <img src={Raj} className="h-28 rounded-md" alt="Developer" />
-    <p className="mt-0.5">Raj Srivastava (2211101133)</p>
+    <p className="mt-0.5">Raj Srivastava (B Tech 3rd year)</p>
   </div>
 </div>
 
@@ -55,8 +55,6 @@ const AboutUs = () => {
     <p className="mt-0.5">Ms. Harshita &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; (M Tech Scholar)</p>
   </div>
 </div>
-            <p class="  text-gray-300 "><strong className='text-xl'>Refrences:-
-            </strong>GIS Tools,Google Earth Pro,Mapbox,Remote Sensing Data,React js,Node js,MongoDB</p>
         </div>
     </div>
 </div>

@@ -9,7 +9,7 @@ export default function Contour() {
     <>
     <div className="flex flex-wrap items-center space-x-10 bg-teal-400 rounded-md px-2 py-1">
           <label className="text-gray-900 dark:text-gray-100">
-            <NavLink className="underline" to="/Manit_Map">Manit Layer</NavLink>
+            <NavLink className="underline" to="/Manit_Map">MANIT Layer</NavLink>
           </label>
           <label className="text-gray-900 dark:text-gray-100">
             <NavLink className="underline" to="/CustomLayer">Custom Layer</NavLink>
@@ -25,12 +25,12 @@ export default function Contour() {
           </label>
         </div>
 
-    <h1 className='flex-wrap text-center text-6xl underline '> Manit Contour Map</h1>
+    <h1 className='flex-wrap text-center text-6xl underline '> Elevation Variation In MANIT</h1>
     <h3 className='flex-wrap text-center text-3xl'>(5m Interval in each Contour Line)</h3>
   <img
   src={NewC}
   alt="Contour Map"
-  className=" inset-0 w-full h-full object-cover z-[-1]"
+  className=" h-svh ml-64 object-cover z-[-1]"
 />
 
 
