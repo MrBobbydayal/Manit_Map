@@ -205,6 +205,15 @@ export default function MapWithSattelite() {
         </label>
       </div>
 
+      <div className="flex flex-wrap items-center space-x-5 bg-teal-400 rounded-md px-2 py-1">
+        <label className="text-gray-900 dark:text-gray-100">
+            <NavLink className="underline" to="/Contour">Contour+DEM</NavLink>
+          </label>
+          <label className="text-gray-900 dark:text-gray-100">
+            <NavLink className="underline" to="/LULC">Land Use Land Cover</NavLink>
+          </label>
+          </div>
+
       <h3 className="text-xl bg-slate-50 px-2 py-1 rounded">🙍🏻‍♂️ {Bob}</h3>
 
       <button

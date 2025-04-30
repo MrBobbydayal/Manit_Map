@@ -7,6 +7,7 @@ import MapWithGeocoder from './component/Map.jsx'
 import {createBrowserRouter , RouterProvider} from 'react-router-dom'
 import AboutUs from './component/AboutUs.jsx'
 import Contour from './component/Contoour.jsx'
+import LULC from './component/LULC.jsx'
 
 export const App = () => {
   const router=createBrowserRouter([
@@ -37,6 +38,10 @@ export const App = () => {
     {
       path:"/Contour",
       element:<Contour/>
+    },
+    {
+      path:"/LULC",
+      element:<LULC/>
     }
   ])
     return (
